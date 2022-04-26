@@ -2,6 +2,7 @@ package com.apriltraining.orderplace.api;
 
 import com.apriltraining.orderplace.models.CreateOrderRequest;
 import com.apriltraining.orderplace.service.OrderService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class OrderController {
     }
 
     @PostMapping(value="/order/action/place-order")
-    ResponseEntity<?> placeOrder(@RequestHeader HttpHeaders httpHeaders, @RequestBody CreateOrderRequest createOrderRequest){
+    ResponseEntity<?> placeOrder(@RequestHeader HttpHeaders httpHeaders, @RequestBody CreateOrderRequest createOrderRequest) throws JsonProcessingException {
         return ResponseEntity.ok(orderService.placeOrder(createOrderRequest));
     }
 
