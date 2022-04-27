@@ -24,7 +24,7 @@ public class OrderController {
     }
 
     @GetMapping(value="order/action/get-order-status")
-    ResponseEntity<?> getOrderStatus(@RequestHeader HttpHeaders httpHeaders, @RequestParam String orderId){
+    ResponseEntity<?> getOrderStatus(@RequestHeader HttpHeaders httpHeaders, @RequestParam String orderId) throws JsonProcessingException {
         return ResponseEntity.ok(orderService.getOrder(orderId));
     }
 }
